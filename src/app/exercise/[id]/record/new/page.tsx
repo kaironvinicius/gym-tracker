@@ -102,7 +102,7 @@ export default function NewRecordPage() {
             value={date}
             onChange={(e) => setDate(e.target.value)}
             max={getTodayISO()}
-            className="w-full bg-gym-card border border-gym-border rounded-xl px-4 py-3 text-gym-text focus:border-gym-accent transition-colors"
+            className="w-full max-w-full box-border bg-gym-card border border-gym-border rounded-xl px-4 py-3 text-gym-text focus:border-gym-accent transition-colors"
           />
         </div>
 
