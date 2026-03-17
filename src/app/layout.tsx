@@ -69,7 +69,7 @@ export default function RootLayout({
           }}
         />
         <ThemeProvider>
-          <div className="mx-auto max-w-[430px] min-h-screen relative z-10">
+          <div className="mx-auto max-w-[430px] h-dvh overflow-hidden relative z-10">
             {children}
           </div>
         </ThemeProvider>

@@ -46,7 +46,7 @@ export default function ExerciseDetailPage() {
   const daysSinceLast = daysSince(exercise.last_record_date);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="h-full flex flex-col">
       {/* Header */}
       <header className="sticky top-0 z-10 bg-gym-surface border-b border-gym-border">
         <div className="flex items-center justify-between px-4 py-3">
@@ -75,7 +75,7 @@ export default function ExerciseDetailPage() {
         </div>
       </header>
 
-      <main className="flex-1 p-4 space-y-4">
+      <main className="flex-1 overflow-y-auto p-4 space-y-4">
         {/* Stats cards */}
         <div className="grid grid-cols-3 gap-3">
           <div className="bg-gym-card border border-gym-border rounded-2xl p-4 text-center">

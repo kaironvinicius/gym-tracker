@@ -22,7 +22,7 @@ export default function CategoryPage() {
 
   if (data === undefined) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="h-full flex flex-col">
         <header className="sticky top-0 z-10 bg-gym-surface border-b border-gym-border px-4 py-3">
           <div className="h-6 bg-gym-border rounded animate-pulse w-32" />
         </header>
@@ -54,7 +54,7 @@ export default function CategoryPage() {
   const { category, exercises } = data;
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="h-full flex flex-col">
       {/* Header */}
       <header className="sticky top-0 z-10 bg-gym-surface border-b border-gym-border">
         <div className="flex items-center justify-between px-4 py-3">
@@ -107,7 +107,7 @@ export default function CategoryPage() {
       </header>
 
       {/* Content */}
-      <main className="flex-1 p-4">
+      <main className="flex-1 overflow-y-auto p-4">
         {exercises.length > 0 ? (
           <div className="flex flex-col gap-3">
             {exercises.map((exercise) => (

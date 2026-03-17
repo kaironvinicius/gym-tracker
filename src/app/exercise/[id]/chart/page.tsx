@@ -65,7 +65,7 @@ export default function ChartPage() {
 
   if (data === undefined) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="h-full flex flex-col">
         <PageHeader title="Gráfico" />
         <div className="p-4 animate-pulse">
           <div className="h-64 bg-gym-card rounded-2xl" />
@@ -76,7 +76,7 @@ export default function ChartPage() {
 
   if (!data) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="h-full flex flex-col">
         <PageHeader title="Gráfico" />
         <div className="flex-1 flex items-center justify-center">
           <p className="text-gym-muted">Ejercicio no encontrado</p>
@@ -88,14 +88,14 @@ export default function ChartPage() {
   const { exercise, chartData, personalBest } = data;
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="h-full flex flex-col">
       <PageHeader
         title="Gráfico de progreso"
         subtitle={exercise.name}
         backHref={`/exercise/${exerciseId}`}
       />
 
-      <main className="flex-1 p-4 space-y-4">
+      <main className="flex-1 overflow-y-auto p-4 space-y-4">
         {chartData.length > 1 ? (
           <>
             {/* Chart */}

@@ -53,10 +53,10 @@ function NewExerciseForm() {
   const backHref = preselectedCategoryId ? `/category/${preselectedCategoryId}` : '/';
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="h-full flex flex-col">
       <PageHeader title="Nuevo ejercicio" backHref={backHref} />
 
-      <main className="flex-1 p-4 space-y-6">
+      <main className="flex-1 overflow-y-auto p-4 space-y-6">
         {/* Name field */}
         <div>
           <label className="block text-sm font-medium text-gym-muted mb-2">

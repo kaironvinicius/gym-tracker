@@ -61,14 +61,14 @@ export default function NewRecordPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="h-full flex flex-col">
       <PageHeader
         title="Nuevo registro"
         subtitle={exercise?.name}
         backHref={`/exercise/${exerciseId}`}
       />
 
-      <main className="flex-1 p-4 space-y-5">
+      <main className="flex-1 overflow-y-auto p-4 space-y-5 pb-6">
         {/* Weight field */}
         <div>
           <label className="block text-sm font-medium text-gym-muted mb-2">

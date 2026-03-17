@@ -27,7 +27,7 @@ export default function HistoryPage() {
 
   if (data === undefined) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="h-full flex flex-col">
         <PageHeader title="Historial" />
         <div className="p-4 space-y-3">
           {[1, 2, 3].map((i) => (
@@ -40,7 +40,7 @@ export default function HistoryPage() {
 
   if (!data) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="h-full flex flex-col">
         <PageHeader title="Historial" />
         <div className="flex-1 flex items-center justify-center">
           <p className="text-gym-muted">Ejercicio no encontrado</p>
@@ -52,7 +52,7 @@ export default function HistoryPage() {
   const { exercise, records } = data;
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="h-full flex flex-col">
       <PageHeader
         title="Historial"
         subtitle={exercise.name}
@@ -69,7 +69,7 @@ export default function HistoryPage() {
         }
       />
 
-      <main className="flex-1 p-4">
+      <main className="flex-1 overflow-y-auto p-4">
         {records.length > 0 ? (
           <div className="space-y-3">
             {records.map((record, index) => (

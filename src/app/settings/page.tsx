@@ -7,10 +7,10 @@ export default function SettingsPage() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="h-full flex flex-col">
       <PageHeader title="Ajustes" backHref="/" />
 
-      <main className="flex-1 p-4 space-y-6">
+      <main className="flex-1 overflow-y-auto p-4 space-y-6">
         {/* Tema */}
         <section>
           <h2 className="text-xs font-semibold text-gym-muted uppercase tracking-wider mb-3 px-1">
