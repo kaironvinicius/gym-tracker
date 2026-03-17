@@ -47,7 +47,7 @@ export default function RootLayout({
       <body
         className="text-gym-text min-h-screen"
         style={{
-          backgroundImage: 'url(/fondo-gym-tracker.jpg)',
+          backgroundImage: 'url(/fondo-gym-tracker.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
