@@ -1,5 +1,8 @@
 'use client';
 
+export const dynamic = 'force-static';
+export const runtime = 'edge';
+
 import { useParams } from 'next/navigation';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '@/lib/db';
