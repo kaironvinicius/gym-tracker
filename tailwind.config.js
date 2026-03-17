@@ -8,17 +8,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'gym-bg': '#0a0a0a',
-        'gym-surface': '#141414',
-        'gym-card': '#1a1a1a',
-        'gym-border': '#2a2a2a',
-        'gym-accent': '#f97316',
-        'gym-accent-dark': '#ea6c0a',
+        'gym-bg': 'var(--gym-bg)',
+        'gym-surface': 'var(--gym-surface)',
+        'gym-card': 'rgb(var(--gym-card) / <alpha-value>)',
+        'gym-border': 'rgb(var(--gym-border) / <alpha-value>)',
+        'gym-accent': 'rgb(var(--gym-accent) / <alpha-value>)',
+        'gym-accent-dark': 'rgb(var(--gym-accent-dark) / <alpha-value>)',
         'gym-green': '#22c55e',
         'gym-red': '#ef4444',
         'gym-yellow': '#eab308',
-        'gym-text': '#f5f5f5',
-        'gym-muted': '#737373',
+        'gym-text': 'var(--gym-text)',
+        'gym-muted': 'var(--gym-muted)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

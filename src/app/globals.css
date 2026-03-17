@@ -2,11 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 245, 245, 245;
-  --background-start-rgb: 10, 10, 10;
+/* ── Tema: Dark Ember (original) ─────────────────────────── */
+:root,
+[data-theme="default"] {
+  --gym-bg: transparent;
+  --gym-card: 26 26 26;
+  --gym-border: 42 42 42;
+  --gym-accent: 249 115 22;
+  --gym-accent-dark: 234 108 10;
+  --gym-text: #f5f5f5;
+  --gym-muted: #737373;
+  --gym-card-bg: rgba(18, 18, 18, 0.78);
+  --gym-surface-bg: rgba(10, 10, 10, 0.88);
+  --gym-accent-bg: rgba(249, 115, 22, 0.18);
 }
 
+/* ── Tema: Dark Glass ─────────────────────────────────────── */
+[data-theme="dark-glass"] {
+  --gym-bg: transparent;
+  --gym-card: 14 14 18;
+  --gym-border: 45 45 55;
+  --gym-accent: 139 92 246;
+  --gym-accent-dark: 124 58 237;
+  --gym-text: #ffffff;
+  --gym-muted: #71717a;
+  --gym-card-bg: rgba(10, 10, 14, 0.72);
+  --gym-surface-bg: rgba(6, 6, 8, 0.88);
+  --gym-accent-bg: rgba(139, 92, 246, 0.14);
+}
+
+/* ── Glass effect — aplica a todo lo que flota ────────────── */
+.bg-gym-card {
+  background-color: var(--gym-card-bg) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.bg-gym-surface {
+  background-color: var(--gym-surface-bg) !important;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.bg-gym-accent {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Bordes vidrio en Dark Glass */
+[data-theme="dark-glass"] .bg-gym-card {
+  border-color: rgba(255, 255, 255, 0.09) !important;
+}
+
+[data-theme="dark-glass"] .bg-gym-surface {
+  border-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* Botones primarios → outline con glass en Dark Glass */
+[data-theme="dark-glass"] .bg-gym-accent {
+  background: rgba(139, 92, 246, 0.14) !important;
+  border: 1.5px solid rgba(139, 92, 246, 0.7) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="dark-glass"] .bg-gym-accent:hover,
+[data-theme="dark-glass"] .hover\:bg-gym-accent-dark:hover {
+  background: rgba(139, 92, 246, 0.24) !important;
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -18,8 +82,16 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: #0a0a0a;
-  color: #f5f5f5;
+  color: var(--gym-text);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  z-index: 0;
 }
 
 body {
@@ -33,16 +105,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #141414;
+  background: var(--gym-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: rgb(var(--gym-border));
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a3a3a;
+  background: rgb(var(--gym-border) / 0.7);
 }
 
 /* Input styles */
@@ -95,6 +167,6 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 button:focus-visible {
-  outline: 2px solid #f97316;
+  outline: 2px solid rgb(var(--gym-accent));
   outline-offset: 2px;
 }
