@@ -74,9 +74,11 @@ export default function CategoryCard({ category }: CategoryCardProps) {
                 className={`w-2 h-2 rounded-full flex-shrink-0 ${getActivityColor(category.last_exercise_date)}`}
               />
             </div>
-            <p className="text-xs text-gym-muted">
-              {formatDate(category.last_exercise_date)}
-            </p>
+            {category.last_exercise_date && (
+              <p className="text-xs text-gym-muted">
+                {formatDate(category.last_exercise_date)}
+              </p>
+            )}
           </div>
 
           {/* Arrow */}
