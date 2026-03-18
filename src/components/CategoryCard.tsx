@@ -53,16 +53,16 @@ export default function CategoryCard({ category }: CategoryCardProps) {
       >
         <div className="flex items-center gap-4">
           {/* Icon */}
-          <div className="w-14 h-14 rounded-2xl bg-gym-surface flex items-center justify-center flex-shrink-0 border border-gym-border">
+          <div className="w-16 h-16 rounded-2xl bg-gym-surface flex items-center justify-center flex-shrink-0 border border-gym-border">
             {category.icon_image.startsWith('data:') ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={category.icon_image}
                 alt={category.name}
-                className="w-10 h-10 object-cover rounded-xl"
+                className="w-12 h-12 object-cover rounded-xl"
               />
             ) : (
-              <span className="text-3xl">{category.icon_image}</span>
+              <span className="text-4xl">{category.icon_image}</span>
             )}
           </div>
 
