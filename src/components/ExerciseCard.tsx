@@ -68,12 +68,12 @@ export default function ExerciseCard({ exercise, categoryIcon }: ExerciseCardPro
       >
         <div className="flex items-center gap-4">
           {/* Icon */}
-          <div className="w-12 h-12 rounded-xl bg-gym-surface flex items-center justify-center flex-shrink-0 border border-gym-border">
+          <div className="w-12 h-12 rounded-xl bg-gym-surface flex-shrink-0 border border-gym-border overflow-hidden">
             {isImageIcon(categoryIcon) ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={categoryIcon} alt="" className="w-8 h-8 object-contain" />
+              <img src={categoryIcon} alt="" className="w-full h-full object-cover" />
             ) : (
-              <span className="text-2xl">{categoryIcon}</span>
+              <span className="text-2xl flex items-center justify-center w-full h-full">{categoryIcon}</span>
             )}
           </div>
 

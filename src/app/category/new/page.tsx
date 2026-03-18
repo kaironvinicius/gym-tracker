@@ -71,12 +71,12 @@ export default function NewCategoryPage() {
             Icono seleccionado
           </label>
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-gym-surface border border-gym-border flex items-center justify-center">
+            <div className="w-16 h-16 rounded-xl bg-gym-surface border border-gym-border overflow-hidden">
               {isImageIcon(customImage || selectedIcon) ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={customImage || selectedIcon} alt="Icono" className="w-12 h-12 object-contain" />
+                <img src={customImage || selectedIcon} alt="Icono" className="w-full h-full object-cover" />
               ) : (
-                <span className="text-4xl">{selectedIcon}</span>
+                <span className="text-4xl flex items-center justify-center w-full h-full">{selectedIcon}</span>
               )}
             </div>
             {customImage && (

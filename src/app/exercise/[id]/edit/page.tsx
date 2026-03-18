@@ -122,9 +122,9 @@ export default function EditExercisePage() {
           <div className="bg-gym-card border border-gym-border rounded-xl p-4">
             <p className="text-sm text-gym-muted mb-3">Vista previa</p>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-gym-surface border border-gym-border flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-gym-surface border border-gym-border overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={selectedCategory.icon_image} alt="" className="w-8 h-8 object-contain" />
+                <img src={selectedCategory.icon_image} alt="" className="w-full h-full object-cover" />
               </div>
               <div>
                 <p className="text-gym-text font-medium">{name || 'Nombre del ejercicio'}</p>

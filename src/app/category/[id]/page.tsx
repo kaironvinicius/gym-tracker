@@ -71,12 +71,12 @@ export default function CategoryPage() {
               </svg>
             </button>
             <div className="flex items-center gap-3 min-w-0">
-              <div className="w-10 h-10 rounded-xl bg-gym-card border border-gym-border flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-gym-card border border-gym-border flex-shrink-0 overflow-hidden">
                 {isImageIcon(category.icon_image) ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={category.icon_image} alt="" className="w-7 h-7 object-contain" />
+                  <img src={category.icon_image} alt="" className="w-full h-full object-cover" />
                 ) : (
-                  <span className="text-xl">{category.icon_image}</span>
+                  <span className="text-xl flex items-center justify-center w-full h-full">{category.icon_image}</span>
                 )}
               </div>
               <div className="min-w-0">
