@@ -95,8 +95,8 @@ export default function CategoriesPage() {
         ) : (
           <EmptyState
             icon="🏋️"
-            title="Sin categorías"
-            description="Crea tu primera categoría para organizar tus ejercicios"
+            title="Sin Rutinas"
+            description="Añade aquí tus rutinas: Pecho, Espalda, Brazos, etc."
             action={
               <button
                 onClick={() => router.push('/category/new')}
