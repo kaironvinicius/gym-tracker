@@ -32,8 +32,8 @@ export default function CategoriesPage() {
       <header className="sticky top-0 z-10 bg-gym-surface border-b border-gym-border">
         <div className="flex items-center justify-between px-4 py-3">
           <div>
-            <h1 className="text-xl font-bold text-gym-text">
-              <span className="text-gym-accent">Gym</span> Tracker
+            <h1 className="text-xl text-gym-text" style={{ fontFamily: "'Kelly Slab', cursive" }}>
+              <span className="text-gym-accent">Gym</span> Bro
             </h1>
             <p className="text-xs text-gym-muted">
               {data ? `${data.length} categoría${data.length !== 1 ? 's' : ''}` : ''}

@@ -1,6 +1,6 @@
 {
-  "name": "Gym Tracker",
-  "short_name": "Gym",
+  "name": "Gym Bro",
+  "short_name": "Gym Bro",
   "description": "Seguimiento de entrenamientos de gimnasio",
   "start_url": "/",
   "scope": "/",
