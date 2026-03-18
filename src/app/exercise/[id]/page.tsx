@@ -136,7 +136,7 @@ export default function ExerciseDetailPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
               </svg>
             </div>
-            <span className="font-semibold text-sm">Agregar registro</span>
+            <span className="font-semibold text-sm font-orbitron">Agregar registro</span>
           </button>
           <button
             onClick={() => router.push(`/exercise/${exerciseId}/history`)}
@@ -147,7 +147,7 @@ export default function ExerciseDetailPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <span className="font-semibold text-sm">Historial</span>
+            <span className="font-semibold text-sm font-orbitron">Historial</span>
           </button>
           <button
             onClick={() => router.push(`/exercise/${exerciseId}/table`)}
@@ -158,7 +158,7 @@ export default function ExerciseDetailPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
               </svg>
             </div>
-            <span className="font-semibold text-sm">Tabla</span>
+            <span className="font-semibold text-sm font-orbitron">Tabla</span>
           </button>
           <button
             onClick={() => router.push(`/exercise/${exerciseId}/chart`)}
@@ -169,7 +169,7 @@ export default function ExerciseDetailPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
               </svg>
             </div>
-            <span className="font-semibold text-sm">Gráfico</span>
+            <span className="font-semibold text-sm font-orbitron">Gráfico</span>
           </button>
         </div>
 
