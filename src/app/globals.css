@@ -152,15 +152,17 @@ input[type='date']::-webkit-calendar-picker-indicator {
   flex-shrink: 0;
 }
 
-/* Orbitron font for titles */
-.font-orbitron {
+/* Orbitron font for titles and buttons */
+.font-orbitron,
+h1, h2, h3,
+button {
   font-family: 'Orbitron', sans-serif;
 }
 
 /* Action buttons → regular weight */
+button,
 .bg-gym-accent,
-.btn-save,
-.bg-gym-accent:hover {
+.btn-save {
   font-weight: 400 !important;
 }
 
