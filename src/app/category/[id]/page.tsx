@@ -80,7 +80,7 @@ export default function CategoryPage() {
                 )}
               </div>
               <div className="min-w-0">
-                <h1 className="text-lg font-semibold text-gym-text truncate">{category.name}</h1>
+                <h1 className="text-lg font-semibold text-gym-text truncate font-orbitron">{category.name}</h1>
                 <p className="text-xs text-gym-muted">
                   {exercises.length} ejercicio{exercises.length !== 1 ? 's' : ''}
                 </p>

@@ -152,6 +152,11 @@ input[type='date']::-webkit-calendar-picker-indicator {
   flex-shrink: 0;
 }
 
+/* Orbitron font for titles */
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+}
+
 /* Active scale */
 .active\:scale-98:active {
   transform: scale(0.98);

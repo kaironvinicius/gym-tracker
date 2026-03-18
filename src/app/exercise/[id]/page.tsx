@@ -63,7 +63,7 @@ export default function ExerciseDetailPage() {
               </svg>
             </button>
             <div className="min-w-0">
-              <h1 className="text-lg font-semibold text-gym-text truncate">{exercise.name}</h1>
+              <h1 className="text-lg font-semibold text-gym-text truncate font-orbitron">{exercise.name}</h1>
               {category && <p className="text-xs text-gym-muted">{category.name}</p>}
             </div>
           </div>

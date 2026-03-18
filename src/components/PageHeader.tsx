@@ -53,7 +53,7 @@ export default function PageHeader({
             </button>
           )}
           <div className="min-w-0">
-            <h1 className="text-lg font-semibold text-gym-text truncate">{title}</h1>
+            <h1 className="text-lg font-semibold text-gym-text truncate font-orbitron">{title}</h1>
             {subtitle && (
               <p className="text-sm text-gym-muted truncate">{subtitle}</p>
             )}
