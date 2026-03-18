@@ -184,7 +184,7 @@ export default function NewRecordPage() {
         <button
           onClick={handleSave}
           disabled={saving || !weight || !date}
-          className="flex-1 py-3 px-4 rounded-xl bg-black/70 backdrop-blur-md border-2 border-violet-500/70 hover:bg-black/80 text-white font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 py-3 px-4 rounded-xl bg-gym-accent hover:bg-gym-accent-dark text-white font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed btn-save"
         >
           {saving ? 'Guardando...' : 'Guardar'}
         </button>

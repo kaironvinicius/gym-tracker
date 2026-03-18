@@ -162,7 +162,7 @@ export default function EditExercisePage() {
         <button
           onClick={handleSave}
           disabled={saving || !name.trim() || !categoryId}
-          className="flex-1 py-3 px-4 rounded-xl bg-gym-accent hover:bg-gym-accent-dark text-white font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 py-3 px-4 rounded-xl bg-gym-accent hover:bg-gym-accent-dark text-white font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed btn-save"
         >
           {saving ? 'Guardando...' : 'Guardar'}
         </button>

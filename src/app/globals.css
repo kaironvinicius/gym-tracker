@@ -70,6 +70,18 @@
   background: rgba(139, 92, 246, 0.24) !important;
 }
 
+/* Botones Guardar → morado sólido con letra blanca en Dark Glass */
+[data-theme="dark-glass"] .btn-save {
+  background: rgb(139, 92, 246) !important;
+  border: none !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+[data-theme="dark-glass"] .btn-save:hover {
+  background: rgb(124, 58, 237) !important;
+}
+
 /* ── Base ─────────────────────────────────────────────────── */
 * {
   box-sizing: border-box;
