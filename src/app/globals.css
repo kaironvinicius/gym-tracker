@@ -157,6 +157,13 @@ input[type='date']::-webkit-calendar-picker-indicator {
   font-family: 'Orbitron', sans-serif;
 }
 
+/* Action buttons → regular weight */
+.bg-gym-accent,
+.btn-save,
+.bg-gym-accent:hover {
+  font-weight: 400 !important;
+}
+
 /* Active scale */
 .active\:scale-98:active {
   transform: scale(0.98);
