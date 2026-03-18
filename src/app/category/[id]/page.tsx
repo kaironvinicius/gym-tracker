@@ -6,7 +6,7 @@ export const runtime = 'edge';
 import { useRouter, useParams } from 'next/navigation';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '@/lib/db';
-import { sortByLeastRecent } from '@/lib/utils';
+import { sortByLeastRecent, isImageIcon } from '@/lib/utils';
 import ExerciseCard from '@/components/ExerciseCard';
 import EmptyState from '@/components/EmptyState';
 
@@ -72,9 +72,9 @@ export default function CategoryPage() {
             </button>
             <div className="flex items-center gap-3 min-w-0">
               <div className="w-10 h-10 rounded-xl bg-gym-card border border-gym-border flex items-center justify-center flex-shrink-0">
-                {category.icon_image.startsWith('data:') ? (
+                {isImageIcon(category.icon_image) ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={category.icon_image} alt="" className="w-7 h-7 object-cover rounded-lg" />
+                  <img src={category.icon_image} alt="" className="w-7 h-7 object-contain" />
                 ) : (
                   <span className="text-xl">{category.icon_image}</span>
                 )}
@@ -123,7 +123,7 @@ export default function CategoryPage() {
           </div>
         ) : (
           <EmptyState
-            icon={category.icon_image.startsWith('data:') ? '🏋️' : category.icon_image}
+            icon={category.icon_image}
             title="Sin ejercicios"
             description="Agrega tu primer ejercicio a esta categoría"
             action={

@@ -90,9 +90,18 @@ export function generateId(): string {
   return Date.now().toString(36) + Math.random().toString(36).slice(2, 9);
 }
 
-export const EMOJI_OPTIONS = [
-  '💪', '🏋️', '🦵', '🔄', '🏃', '🚴', '🤸', '🏊',
-  '⚡', '🔥', '💥', '🎯', '🏆', '⭐', '🦾', '🧠',
-  '🫀', '🦷', '🦶', '🤜', '🥊', '🏅', '🎽', '👟',
-  '🧘', '🤾', '🚵', '🤺', '🥋', '⛹️', '🏇', '🤼',
+export const ICON_OPTIONS = [
+  '/images/icon-1.svg',
+  '/images/icon-2.svg',
+  '/images/icon-3.svg',
+  '/images/icon-4.svg',
+  '/images/icon-5.svg',
+  '/images/icon-6.svg',
+  '/images/icon-7.svg',
+  '/images/icon-8.svg',
+  '/images/icon-9.svg',
 ];
+
+export function isImageIcon(icon: string): boolean {
+  return icon.startsWith('data:') || icon.startsWith('/');
+}

@@ -111,7 +111,7 @@ export default function EditExercisePage() {
           >
             {data.categories?.map((cat) => (
               <option key={cat.id} value={cat.id}>
-                {cat.icon_image.startsWith('data:') ? '🖼️' : cat.icon_image} {cat.name}
+                {cat.name}
               </option>
             ))}
           </select>
@@ -123,12 +123,8 @@ export default function EditExercisePage() {
             <p className="text-sm text-gym-muted mb-3">Vista previa</p>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl bg-gym-surface border border-gym-border flex items-center justify-center">
-                {selectedCategory.icon_image.startsWith('data:') ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={selectedCategory.icon_image} alt="" className="w-8 h-8 object-cover rounded-lg" />
-                ) : (
-                  <span className="text-2xl">{selectedCategory.icon_image}</span>
-                )}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={selectedCategory.icon_image} alt="" className="w-8 h-8 object-contain" />
               </div>
               <div>
                 <p className="text-gym-text font-medium">{name || 'Nombre del ejercicio'}</p>

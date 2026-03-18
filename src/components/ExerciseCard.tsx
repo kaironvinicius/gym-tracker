@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { type Exercise } from '@/lib/db';
-import { formatDate, getActivityColor, formatWeight, daysSince } from '@/lib/utils';
+import { formatDate, getActivityColor, formatWeight, daysSince, isImageIcon } from '@/lib/utils';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '@/lib/db';
 
@@ -69,13 +69,9 @@ export default function ExerciseCard({ exercise, categoryIcon }: ExerciseCardPro
         <div className="flex items-center gap-4">
           {/* Icon */}
           <div className="w-12 h-12 rounded-xl bg-gym-surface flex items-center justify-center flex-shrink-0 border border-gym-border">
-            {categoryIcon.startsWith('data:') ? (
+            {isImageIcon(categoryIcon) ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={categoryIcon}
-                alt=""
-                className="w-8 h-8 object-cover rounded-lg"
-              />
+              <img src={categoryIcon} alt="" className="w-8 h-8 object-contain" />
             ) : (
               <span className="text-2xl">{categoryIcon}</span>
             )}
@@ -129,7 +125,12 @@ export default function ExerciseCard({ exercise, categoryIcon }: ExerciseCardPro
           <div className="w-full max-w-sm bg-gym-card border border-gym-border rounded-2xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
             <div className="p-4 border-b border-gym-border">
               <div className="flex items-center gap-3">
-                <span className="text-xl">{categoryIcon.startsWith('data:') ? '🏋️' : categoryIcon}</span>
+                {isImageIcon(categoryIcon) ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={categoryIcon} alt="" className="w-6 h-6 object-contain" />
+                ) : (
+                  <span className="text-xl">{categoryIcon}</span>
+                )}
                 <span className="font-semibold text-gym-text">{exercise.name}</span>
               </div>
             </div>

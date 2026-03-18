@@ -86,7 +86,7 @@ function NewExerciseForm() {
             <option value="" disabled>Selecciona una categoría</option>
             {categories?.map((cat) => (
               <option key={cat.id} value={cat.id}>
-                {cat.icon_image.startsWith('data:') ? '🖼️' : cat.icon_image} {cat.name}
+                {cat.name}
               </option>
             ))}
           </select>
@@ -98,12 +98,8 @@ function NewExerciseForm() {
             <p className="text-sm text-gym-muted mb-3">Vista previa del icono</p>
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-2xl bg-gym-surface border border-gym-border flex items-center justify-center">
-                {selectedCategory.icon_image.startsWith('data:') ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={selectedCategory.icon_image} alt="" className="w-10 h-10 object-cover rounded-xl" />
-                ) : (
-                  <span className="text-3xl">{selectedCategory.icon_image}</span>
-                )}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={selectedCategory.icon_image} alt="" className="w-10 h-10 object-contain" />
               </div>
               <div>
                 <p className="text-gym-text font-medium">{name || 'Nombre del ejercicio'}</p>

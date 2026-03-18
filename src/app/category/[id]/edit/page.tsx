@@ -10,7 +10,7 @@ import { db } from '@/lib/db';
 import PageHeader from '@/components/PageHeader';
 import ConfirmDialog from '@/components/ConfirmDialog';
 import { updateCategory, deleteCategory } from '@/hooks/useCategories';
-import { EMOJI_OPTIONS, imageToBase64 } from '@/lib/utils';
+import { ICON_OPTIONS, isImageIcon, imageToBase64 } from '@/lib/utils';
 
 export default function EditCategoryPage() {
   const router = useRouter();
@@ -20,7 +20,7 @@ export default function EditCategoryPage() {
   const category = useLiveQuery(() => db.categories.get(categoryId), [categoryId]);
 
   const [name, setName] = useState('');
-  const [selectedIcon, setSelectedIcon] = useState('💪');
+  const [selectedIcon, setSelectedIcon] = useState(ICON_OPTIONS[0]);
   const [customImage, setCustomImage] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
@@ -31,7 +31,7 @@ export default function EditCategoryPage() {
       setName(category.name);
       if (category.icon_image.startsWith('data:')) {
         setCustomImage(category.icon_image);
-        setSelectedIcon('💪');
+        setSelectedIcon(ICON_OPTIONS[0]);
       } else {
         setSelectedIcon(category.icon_image);
         setCustomImage(null);
@@ -113,9 +113,9 @@ export default function EditCategoryPage() {
           </label>
           <div className="flex items-center gap-4">
             <div className="w-16 h-16 rounded-2xl bg-gym-surface border border-gym-border flex items-center justify-center">
-              {customImage ? (
+              {isImageIcon(customImage || selectedIcon) ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={customImage} alt="Icono" className="w-12 h-12 object-cover rounded-xl" />
+                <img src={customImage || selectedIcon} alt="Icono" className="w-12 h-12 object-contain" />
               ) : (
                 <span className="text-4xl">{selectedIcon}</span>
               )}
@@ -131,23 +131,24 @@ export default function EditCategoryPage() {
           </div>
         </div>
 
-        {/* Emoji grid */}
+        {/* Icon grid */}
         <div>
           <label className="block text-sm font-medium text-gym-muted mb-3">
-            Elige un emoji
+            Elige un icono
           </label>
-          <div className="grid grid-cols-8 gap-2">
-            {EMOJI_OPTIONS.map((emoji) => (
+          <div className="grid grid-cols-5 gap-3">
+            {ICON_OPTIONS.map((icon) => (
               <button
-                key={emoji}
-                onClick={() => { setSelectedIcon(emoji); setCustomImage(null); }}
-                className={`w-full aspect-square rounded-xl flex items-center justify-center text-2xl transition-all ${
-                  selectedIcon === emoji && !customImage
+                key={icon}
+                onClick={() => { setSelectedIcon(icon); setCustomImage(null); }}
+                className={`w-full aspect-square rounded-xl flex items-center justify-center p-3 transition-all ${
+                  selectedIcon === icon && !customImage
                     ? 'bg-gym-accent/20 border-2 border-gym-accent'
                     : 'bg-gym-card border border-gym-border hover:border-gym-accent/50'
                 }`}
               >
-                {emoji}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={icon} alt="" className="w-full h-full object-contain" />
               </button>
             ))}
           </div>

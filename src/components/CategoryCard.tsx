@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { type Category } from '@/lib/db';
-import { formatDate, getActivityColor } from '@/lib/utils';
+import { formatDate, getActivityColor, isImageIcon } from '@/lib/utils';
 
 interface CategoryCardProps {
   category: Category;
@@ -54,12 +54,12 @@ export default function CategoryCard({ category }: CategoryCardProps) {
         <div className="flex items-center gap-4">
           {/* Icon */}
           <div className="w-16 h-16 rounded-2xl bg-gym-surface flex items-center justify-center flex-shrink-0 border border-gym-border">
-            {category.icon_image.startsWith('data:') ? (
+            {isImageIcon(category.icon_image) ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={category.icon_image}
                 alt={category.name}
-                className="w-12 h-12 object-cover rounded-xl"
+                className="w-12 h-12 object-contain"
               />
             ) : (
               <span className="text-4xl">{category.icon_image}</span>
@@ -99,7 +99,12 @@ export default function CategoryCard({ category }: CategoryCardProps) {
           <div className="w-full max-w-sm bg-gym-card border border-gym-border rounded-2xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
             <div className="p-4 border-b border-gym-border">
               <div className="flex items-center gap-3">
-                <span className="text-2xl">{category.icon_image.startsWith('data:') ? '🖼️' : category.icon_image}</span>
+                {isImageIcon(category.icon_image) ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={category.icon_image} alt="" className="w-7 h-7 object-contain" />
+                ) : (
+                  <span className="text-2xl">{category.icon_image}</span>
+                )}
                 <span className="font-semibold text-gym-text">{category.name}</span>
               </div>
             </div>
