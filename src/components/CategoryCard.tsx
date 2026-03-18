@@ -3,20 +3,18 @@
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { type Category } from '@/lib/db';
-import { formatDate, getActivityColor, daysSince } from '@/lib/utils';
+import { formatDate, getActivityColor } from '@/lib/utils';
 
 interface CategoryCardProps {
   category: Category;
   exerciseCount: number;
 }
 
-export default function CategoryCard({ category, exerciseCount }: CategoryCardProps) {
+export default function CategoryCard({ category }: CategoryCardProps) {
   const router = useRouter();
   const [showActions, setShowActions] = useState(false);
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const touchStartPos = useRef<{ x: number; y: number } | null>(null);
-
-  const days = daysSince(category.last_exercise_date);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartPos.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
@@ -71,27 +69,12 @@ export default function CategoryCard({ category, exerciseCount }: CategoryCardPr
           {/* Info */}
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
-              <h3 className="font-semibold text-gym-text text-base truncate">{category.name}</h3>
+              <h3 className="font-semibold text-gym-text text-lg truncate">{category.name}</h3>
               <div
                 className={`w-2 h-2 rounded-full flex-shrink-0 ${getActivityColor(category.last_exercise_date)}`}
               />
             </div>
-            <div className="flex items-center gap-3">
-              <span className="text-xs text-gym-muted">
-                {exerciseCount} ejercicio{exerciseCount !== 1 ? 's' : ''}
-              </span>
-              <span className="text-xs text-gym-muted">•</span>
-              <span className="text-xs text-gym-muted">
-                {category.last_exercise_date
-                  ? days === 0
-                    ? 'Hoy'
-                    : days === 1
-                    ? 'Ayer'
-                    : `Hace ${days} días`
-                  : 'Sin actividad'}
-              </span>
-            </div>
-            <p className="text-xs text-gym-muted mt-1">
+            <p className="text-xs text-gym-muted">
               {formatDate(category.last_exercise_date)}
             </p>
           </div>
