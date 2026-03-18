@@ -35,9 +35,6 @@ export default function CategoriesPage() {
             <h1 className="text-3xl text-gym-text font-orbitron">
               <span className="text-gym-accent">Gym</span> Bro
             </h1>
-            <p className="text-xs text-gym-muted">
-              {data ? `${data.length} categoría${data.length !== 1 ? 's' : ''}` : ''}
-            </p>
           </div>
           <div className="flex items-center gap-2">
             <button
