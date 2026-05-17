@@ -111,3 +111,73 @@ export async function deleteExerciseWithCascade(exerciseId: string): Promise<voi
     await recalculateCategoryLastDate(exercise.category_id);
   }
 }
+
+// ── Backup ────────────────────────────────────────────────────────────
+
+export interface BackupPayload {
+  app: 'gym-bro';
+  version: 1;
+  exported_at: string;
+  categories: Category[];
+  exercises: Exercise[];
+  exercise_records: ExerciseRecord[];
+}
+
+export async function exportAllData(): Promise<BackupPayload> {
+  const [categories, exercises, exercise_records] = await Promise.all([
+    db.categories.toArray(),
+    db.exercises.toArray(),
+    db.exercise_records.toArray(),
+  ]);
+  return {
+    app: 'gym-bro',
+    version: 1,
+    exported_at: new Date().toISOString(),
+    categories,
+    exercises,
+    exercise_records,
+  };
+}
+
+export async function importAllData(payload: unknown): Promise<{
+  categories: number;
+  exercises: number;
+  records: number;
+}> {
+  if (!payload || typeof payload !== 'object') {
+    throw new Error('Archivo no válido');
+  }
+  const p = payload as Partial<BackupPayload>;
+  if (p.app !== 'gym-bro') {
+    throw new Error('El archivo no es un backup de Gym Bro');
+  }
+  if (
+    !Array.isArray(p.categories) ||
+    !Array.isArray(p.exercises) ||
+    !Array.isArray(p.exercise_records)
+  ) {
+    throw new Error('Estructura del backup incorrecta');
+  }
+
+  await db.transaction(
+    'rw',
+    db.categories,
+    db.exercises,
+    db.exercise_records,
+    async () => {
+      await db.categories.clear();
+      await db.exercises.clear();
+      await db.exercise_records.clear();
+      if (p.categories!.length) await db.categories.bulkAdd(p.categories!);
+      if (p.exercises!.length) await db.exercises.bulkAdd(p.exercises!);
+      if (p.exercise_records!.length)
+        await db.exercise_records.bulkAdd(p.exercise_records!);
+    }
+  );
+
+  return {
+    categories: p.categories!.length,
+    exercises: p.exercises!.length,
+    records: p.exercise_records!.length,
+  };
+}
